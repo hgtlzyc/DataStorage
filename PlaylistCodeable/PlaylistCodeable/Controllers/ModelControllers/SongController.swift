@@ -8,21 +8,21 @@
 import Foundation
 
 class SongController {
-    
-    // MARK: - Properties
-    static let shared = SongController()
-    
-    var songs: [Song] = []
-    
+        
     // MARK: - CRUD Functions
-    func createSong(songTitel: String, artist: String ) {
+    func createSong(songTitel: String, artist: String, playlist: Playlist ) {
         let newSong = Song(songTitle: songTitel, artist: artist)
-        songs.append(newSong)
+        playlist.songs.append(newSong)
     }
     
-    func deleteSong(song: Song) {
-        guard let index = songs.firstIndex(of: song) else { return }
-        songs.remove(at: index)
+    func updateSong(song: Song, newSongTitle: String, newArtist: String) {
+        song.songTitle = newSongTitle
+        song.artist = newArtist
+    }
+    
+    func deleteSong(song: Song, playlist: Playlist) {
+        guard let index = playlist.songs.firstIndex(of: song) else { return }
+        playlist.songs.remove(at: index)
     }
     
     // MARK: - Make init private

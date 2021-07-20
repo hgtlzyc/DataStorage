@@ -7,18 +7,21 @@
 
 import Foundation
 
-class Song {
+class Song: Codable {
 
-    let songTitle: String
-    let artist: String
+    var songTitle: String
+    var artist: String
+    let date: Date
     let uuid: String
     
     init(songTitle: String,
          artist: String,
-         uuid: String = UUID().uuidString) {
+         uuid: String = UUID().uuidString,
+         date: Date = Date() ) {
         self.songTitle = songTitle
         self.artist = artist
         self.uuid = uuid
+        self.date = date
     }
 
     
@@ -31,3 +34,4 @@ extension Song: Equatable {
         return lhs.uuid == rhs.uuid
     }
 }
+
