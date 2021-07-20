@@ -17,17 +17,19 @@ class PlaylistController {
     func createPlaylist(name: String) {
         let newPlaylist = Playlist(name: name)
         playlists.append(newPlaylist)
+        saveToPersistanceStore()
     }
     
     func deletePlaylist(playList: Playlist) {
         guard let index = playlists.firstIndex(of: playList) else { return }
         playlists.remove(at: index)
+        saveToPersistanceStore()
     }
     
     
     // MARK: - Persistence
         
-    func getPersistenceURL() -> URL {
+    private func getPersistenceURL() -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fileURL = url[0].appendingPathComponent("Playlist.json")
         return fileURL
