@@ -43,12 +43,6 @@ class PlaylistTableViewController: UITableViewController {
         
         cell.detailTextLabel?.text = playlist.songs.count == 1 ? "1 Song" : "\(playlist.songs.count)"
         
-//        if playlist.songs.count == 1 {
-//            cell.detailTextLabel?.text = "1 Song"
-//        } else {
-//            cell.detailTextLabel?.text = "\(playlist.songs.count)"
-//        }
-        
         return cell
     }
     
