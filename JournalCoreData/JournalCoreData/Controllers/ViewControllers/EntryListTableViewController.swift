@@ -36,7 +36,7 @@ class EntryListTableViewController: UITableViewController {
         return cell
     }
 
-    
+    // MARK: - Delete Related
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
